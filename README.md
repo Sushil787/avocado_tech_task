@@ -1,4 +1,4 @@
-
+<!-- 
 # Flutter Clean Architecture Starter Template
 
 This is a Flutter project starter template that follows the principles of Clean Architecture. It provides a structured and scalable architecture for building Flutter applications.
@@ -62,4 +62,4 @@ The following development dependencies are included in this Flutter starter temp
 - `flutter_lints: ^2.0.0`: A set of recommended lints for encouraging good coding practices.
 - `freezed: ^2.3.2`: A code generation library for immutable classes.
 - `injectable_generator: ^2.1.4`: Code generation for the injectable package.
-- `very_good_analysis: ^4.0.0+1`: A set
+- `very_good_analysis: ^4.0.0+1`: A set -->
