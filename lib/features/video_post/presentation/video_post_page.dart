@@ -45,26 +45,28 @@ class _VideoPostPageState extends State<VideoPostPage> {
       body: Column(
         children: [
           const BuildScrollBar(),
-          Container(
-            margin: const EdgeInsets.only(top: 16, left: 14, right: 14),
-            height: context.height * .8,
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisSpacing: 8,
-                crossAxisCount: 2,
-                childAspectRatio: 0.75,
-                crossAxisSpacing: 8,
+          
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(top: 16, left: 14, right: 14),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 8,
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.66,
+                  crossAxisSpacing: 8,
+                ),
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .push(AppRoute.postDetail, extra: data[index]);
+                    },
+                    child: buildGridItemWidget(context, data[index]),
+                  );
+                },
               ),
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context)
-                        .push(AppRoute.postDetail, extra: data[index]);
-                  },
-                  child: buildGridItemWidget(context, data[index]),
-                );
-              },
             ),
           ),
         ],

@@ -12,7 +12,6 @@ Widget buildGridItemWidget(BuildContext context, SocailPost post) {
       border: Border.all(color: Colors.black38),
       borderRadius: BorderRadius.circular(20),
     ),
-    height: context.height * .4,
     child: Column(
       children: [
         Text(
@@ -27,17 +26,21 @@ Widget buildGridItemWidget(BuildContext context, SocailPost post) {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            buildSocialWidget(
-              context,
-              asset: post.assetsPath,
-              color: post.color,
-              text: post.text,
+            Flexible(
+              child: buildSocialWidget(
+                context,
+                asset: post.assetsPath,
+                color: post.color,
+                text: post.text,
+              ),
             ),
+            HorizontalGap.s,
+            // const Flexible(child: HorizontalGap.m),
             Text(
               post.time,
               style: Theme.of(context)
                   .textTheme
-                  .labelMedium!
+                  .labelSmall!
                   .copyWith(color: Colors.grey),
             ),
           ],
@@ -73,7 +76,8 @@ Widget buildSocialWidget(
   required String text,
 }) {
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+    height: 20,
+    padding: const EdgeInsets.symmetric(horizontal: 4),
     decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(20),
@@ -85,10 +89,9 @@ Widget buildSocialWidget(
           asset,
           color: Colors.white,
         ),
-        HorizontalGap.m,
         Text(
           text,
-          style: Theme.of(context).textTheme.labelMedium!.copyWith(
+          style: Theme.of(context).textTheme.labelSmall!.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),

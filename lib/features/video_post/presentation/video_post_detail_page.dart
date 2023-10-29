@@ -27,10 +27,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
       initialVideoId: widget.post.socialLink,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
-        loop: false,
-        isLive: false,
-        forceHD: false,
-        enableCaption: true,
       ),
     );
 
@@ -77,7 +73,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
           children: [
             youtubePlayerWidget(context),
             Container(
-              height: context.height * .7,
               width: double.infinity,
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               child: Column(
